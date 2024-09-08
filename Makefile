@@ -65,4 +65,4 @@ release-major: test
 
 publish: build
 	git push --tags origin HEAD:master
-	yarn publish
+	yarn publish --access public
