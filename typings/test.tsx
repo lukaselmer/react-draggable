@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import Draggable, {DraggableCore} from 'react-draggable';
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import Draggable, { DraggableCore } from '@lukaselmer/react-draggable'
 
 const root = document.getElementById('root')
 
@@ -9,7 +9,7 @@ function handleDrag() {}
 function handleStop() {}
 function handleMouseDown() {}
 
-const nodeRef = React.createRef<HTMLDivElement>();
+const nodeRef = React.createRef<HTMLDivElement>()
 ReactDOM.render(
   <Draggable
     axis="y"
@@ -29,19 +29,20 @@ ReactDOM.render(
     defaultClassName={'draggable'}
     defaultClassNameDragging={'dragging'}
     defaultClassNameDragged={'dragged'}
-    defaultPosition={{x: 0, y: 0}}
+    defaultPosition={{ x: 0, y: 0 }}
     nodeRef={nodeRef}
-    positionOffset={{x: 0, y: 0}}
-    position={{x: 50, y: 50}}>
+    positionOffset={{ x: 0, y: 0 }}
+    position={{ x: 50, y: 50 }}
+  >
     <div className="foo bar" ref={nodeRef}>
-      <div className="handle"/>
-      <div className="cancel"/>
+      <div className="handle" />
+      <div className="cancel" />
     </div>
   </Draggable>,
   root
-);
+)
 
-const nodeRefCore = React.createRef<HTMLDivElement>();
+const nodeRefCore = React.createRef<HTMLDivElement>()
 ReactDOM.render(
   <DraggableCore
     handle=".handle"
@@ -56,16 +57,26 @@ ReactDOM.render(
     onStop={handleStop}
     offsetParent={document.body}
     enableUserSelectHack={false}
-    allowMobileScroll={false}>
+    allowMobileScroll={false}
+  >
     <div className="foo bar" ref={nodeRefCore}>
-      <div className="handle"/>
-      <div className="cancel"/>
+      <div className="handle" />
+      <div className="cancel" />
     </div>
   </DraggableCore>,
   root
-);
+)
 
+ReactDOM.render(
+  <Draggable>
+    <div />
+  </Draggable>,
+  root
+)
 
-ReactDOM.render(<Draggable><div/></Draggable>, root);
-
-ReactDOM.render(<DraggableCore><div/></DraggableCore>, root);
+ReactDOM.render(
+  <DraggableCore>
+    <div />
+  </DraggableCore>,
+  root
+)
